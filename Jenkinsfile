@@ -8,13 +8,13 @@ pipeline {
             steps {
                 // Checkout the code from the repository
                 git url: 'https://github.com/adeoyedewale/finalclassreview.git'
-                sh 'cd frontend'
+                sh 'cd frontend &&'
                 // Install dependencies
-                sh 'yarn install'
+                sh 'yarn install &&'
                 // Build the application
-                sh 'yarn build'
+                sh 'yarn build &&'
                 // Run tests
-                sh 'yarn test'
+                sh 'yarn test &&'
                 // Run eject
                 sh 'yarn eject'
             }
@@ -22,9 +22,9 @@ pipeline {
         stage('Build Backend') {
             steps {
                 git url: 'https://github.com/adeoyedewale/finalclassreview.git'
-                sh 'cd backend'
-                sh 'npm install'
-                sh 'npm run build'
+                sh 'cd backend &&'
+                sh 'npm install &&'
+                sh 'npm run build &&'
                 sh 'npm test'
             }
         }
