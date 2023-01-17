@@ -1,12 +1,19 @@
 FROM node:14-alpine
 #ENV NODE_OPTIONS="--openssl-legacy-provider"
-WORKDIR /app
+# WORKDIR /app
+
+# Create a directory for the app
+RUN mkdir -p /usr/src/backend
+RUN mkdir -p /usr/src/frontend
 
 # Copy built frontend application
-COPY tmp/frontend ./frontend
+COPY tmp/frontend /usr/srcfrontend
 
 # Copy built backend application
-COPY tmp/backend ./backend
+COPY tmp/backend /usr/src/backend
+
+# Set the working directory
+WORKDIR /usr/src/backend
 
 # Copy the package.json and package-lock.json
 COPY package*.json ./
@@ -22,7 +29,7 @@ CMD ["npm", "ci"]
 CMD ["node", "backend/index.js"]
 
 #set the working directory 
-WORKDIR /app/frontend
+WORKDIR /usr/src/frontend
 
 # Copy the package.json and package-lock.json
 COPY package*.json ./
