@@ -14,7 +14,7 @@ pipeline {
         stage('Build Backend') {
             steps {
                 git url: 'https://github.com/adeoyedewale/finalclassreview.git'
-                sh 'cd backend && npm install && npm run build && npm test'
+                sh 'cd backend && npm install && npm test'
             }
         }
         stage('Build Docker Image') {
