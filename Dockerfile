@@ -18,6 +18,7 @@ RUN cd backend && npm install
 EXPOSE 8080
 
 # Start the backend
+CMD ["npm", "ci"]
 CMD ["node", "backend/index.js"]
 
 #set the working directory 
@@ -39,6 +40,6 @@ RUN yarn build
 EXPOSE 3000
 
 # Start the application
-#CMD ["npm", "ci"]
+CMD ["npm", "ci"]
 CMD [ "npm", "start" ]
 
