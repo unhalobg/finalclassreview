@@ -1,3 +1,5 @@
+ENV NODE_OPTIONS="--openssl-legacy-provider"
+
 FROM node:14-alpine
 
 WORKDIR /app
@@ -42,4 +44,3 @@ EXPOSE 3000
 # Start the application
 CMD ["npm", "ci"]
 CMD [ "npm", "start" ]
-
