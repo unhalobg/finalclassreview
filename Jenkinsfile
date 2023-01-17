@@ -22,8 +22,8 @@ pipeline {
                 // Copy built applications to a temporary directory
                 sh 'mkdir -p tmp/frontend'
                 sh 'mkdir -p tmp/backend'
-                sh 'cp -r frontend tmp/frontend'
-                sh 'cp -r backend tmp/backend'
+                sh 'sudo cp -r frontend tmp/frontend'
+                sh 'sudo cp -r backend tmp/backend'
                 // Build the Docker image
                 sh 'docker build -t eruobodo/my-app-image:$BUILD_NUMBER .'
             }
