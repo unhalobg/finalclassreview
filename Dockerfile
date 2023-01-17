@@ -21,6 +21,9 @@ COPY package*.json ./
 # Install backend dependencies
 RUN cd backend && npm install
 
+# Copy the rest of the application code
+COPY . .
+
 # Expose port for the backend
 EXPOSE 8080
 
