@@ -25,7 +25,7 @@ pipeline {
                 sh 'cp -r frontend/build tmp/frontend'
                 sh 'cp -r backend tmp/backend'
                 // Build the Docker image
-                sh 'docker build -t eruobodo/my-app-image:${BUILD_NUMBER} -f Dockerfile .'
+                sh 'docker build -t eruobodo/my-app-image:$BUILD_NUMBER .'
             }
         }
       stage('Publish') {
