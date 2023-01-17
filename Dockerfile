@@ -1,7 +1,5 @@
-ENV NODE_OPTIONS="--openssl-legacy-provider"
-
 FROM node:14-alpine
-
+#ENV NODE_OPTIONS="--openssl-legacy-provider"
 WORKDIR /app
 
 # Copy built frontend application
