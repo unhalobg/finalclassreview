@@ -20,10 +20,10 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 // Copy built applications to a temporary directory
-                sh 'mkdir -p tmp/frontend'
-                sh 'mkdir -p tmp/backend'
-                sh 'sudo su && cp -r frontend tmp/frontend'
-                sh 'sudo su && cp -r backend tmp/backend'
+                //sh 'mkdir -p tmp/frontend'
+                //sh 'mkdir -p tmp/backend'
+                //sh 'cp -r frontend tmp/frontend'
+                //sh 'cp -r backend tmp/backend'
                 // Build the Docker image
                 sh 'docker build -t eruobodo/my-app-image:$BUILD_NUMBER .'
             }
