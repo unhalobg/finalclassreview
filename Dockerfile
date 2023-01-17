@@ -16,7 +16,7 @@ COPY tmp/backend /usr/src/backend
 WORKDIR /usr/src/backend
 
 # Copy the package.json and package-lock.json
-COPY package*.json ./
+COPY backend/package*.json ./
 
 # Install backend dependencies
 RUN cd backend && npm install
@@ -35,10 +35,9 @@ CMD ["node", "backend/index.js"]
 WORKDIR /usr/src/frontend
 
 # Copy the package.json and package-lock.json
-COPY package*.json ./
+COPY frontend/package*.json ./
 
 # Install the app dependencies
-RUN yarn init -y
 RUN yarn install
 
 # Copy the rest of the application code
