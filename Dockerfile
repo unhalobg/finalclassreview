@@ -44,11 +44,11 @@ RUN yarn install
 COPY . .
 
 # Build the app
-RUN yarn run build
+RUN yarn build
 
 # Expose the port
 EXPOSE 3000
 
 # Start the application
 CMD ["npm", "ci"]
-CMD [ "npm", "start" ]
+CMD [ "npm", "start"]
