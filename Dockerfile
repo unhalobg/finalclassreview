@@ -35,7 +35,7 @@ CMD ["node", "backend/index.js"]
 WORKDIR /usr/src/frontend
 
 # Copy the package.json and package-lock.json
-COPY package*.json ./
+COPY package*.json /usr/src/frontend
 
 # Install the app dependencies
 RUN yarn install
