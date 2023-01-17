@@ -7,7 +7,7 @@ RUN mkdir -p /usr/src/backend
 RUN mkdir -p /usr/src/frontend
 
 # Copy built frontend application
-COPY tmp/frontend /usr/srcfrontend
+COPY tmp/frontend /usr/src/frontend
 
 # Copy built backend application
 COPY tmp/backend /usr/src/backend
