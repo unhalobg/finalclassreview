@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Build Backend') {
             steps {
-                git url: 'https://github.com/adeoyedewale/finalclassreview.git'
+                //git url: 'https://github.com/adeoyedewale/finalclassreview.git'
                 sh 'cd backend &&'
                 sh 'npm install &&'
                 sh 'npm run build &&'
