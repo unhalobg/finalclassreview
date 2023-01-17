@@ -51,4 +51,4 @@ EXPOSE 3000
 
 # Start the application
 CMD ["npm", "ci"]
-CMD [ "npm", "start"]
+CMD ["npm", "start"]
