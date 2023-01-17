@@ -40,5 +40,5 @@ EXPOSE 3000
 
 # Start the application
 #CMD ["npm", "ci"]
-CMD [ "yarn", "start" ]
+CMD [ "npm", "start" ]
 
