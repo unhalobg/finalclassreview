@@ -38,7 +38,7 @@ WORKDIR /usr/src/frontend
 COPY package*.json ./
 
 # Install the app dependencies
-RUN yarn init
+RUN yarn init -y
 RUN yarn install
 
 # Copy the rest of the application code
