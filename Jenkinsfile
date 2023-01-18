@@ -1,7 +1,8 @@
 pipeline {
     agent any
     environment {
-      DOCKERHUB_CREDENTIALS=credentials('dockerhub')
+	    DOCKERHUB_CREDENTIALS=credentials('dockerhub')
+	    CI = true
     }
     stages {
         stage('Build Frontend') {
@@ -20,10 +21,10 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 // Copy built applications to a temporary directory
-                //sh 'mkdir -p tmp/frontend'
-                //sh 'mkdir -p tmp/backend'
-                //sh 'cp -r frontend/build tmp/frontend'
-                //sh 'cp -r backend tmp/backend'
+                sh 'mkdir -p tmp/frontend'
+                sh 'mkdir -p tmp/backend'
+                sh 'cp -r frontend/build tmp/frontend'
+                sh 'cp -r backend tmp/backend'
                 // Build the Docker image
                 sh 'docker build -t eruobodo/my-app-image:$BUILD_NUMBER .'
             }
