@@ -19,7 +19,7 @@ WORKDIR /usr/src/backend
 COPY backend/package*.json ./
 
 # Install backend dependencies
-#RUN npm install
+RUN npm install
 RUN npm ci
 
 # Copy the rest of the application code
