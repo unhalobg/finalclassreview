@@ -19,7 +19,8 @@ WORKDIR /usr/src/backend
 COPY backend/package*.json ./
 
 # Install backend dependencies
-RUN npm install
+#RUN npm install
+RUN npm ci
 
 # Copy the rest of the application code
 COPY . .
@@ -28,8 +29,7 @@ COPY . .
 EXPOSE 8080
 
 # Start the backend
-CMD ["npm", "ci"]
-CMD ["npm", "start"]
+#CMD ["npm", "start"]
 
 #set the working directory 
 WORKDIR /usr/src/frontend
@@ -38,7 +38,8 @@ WORKDIR /usr/src/frontend
 COPY frontend/package*.json ./
 
 # Install the app dependencies
-RUN npm install
+#RUN npm install
+RUN npm ci
 
 # Copy the rest of the application code
 COPY . .
@@ -50,5 +51,7 @@ RUN npm build
 EXPOSE 3000
 
 # Start the application
-CMD ["npm", "ci"]
-CMD ["npm", "start"]
+#CMD ["npm", "ci"]
+#CMD ["npm", "start"]
+WORKDIR /usr/src/backend
+CMD ["sh", "-c", "npm run start:backend && cd /usr/src/frontend && npm run start:frontend"]
