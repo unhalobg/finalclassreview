@@ -7,7 +7,7 @@ RUN mkdir -p /usr/src/backend
 RUN mkdir -p /usr/src/frontend
 
 # Copy built frontend application
-COPY frontend /usr/src/frontend
+COPY frontend/build /usr/src/frontend
 
 # Copy built backend application
 COPY backend /usr/src/backend
@@ -29,7 +29,7 @@ EXPOSE 8080
 
 # Start the backend
 CMD ["npm", "ci"]
-CMD ["node", "backend/index.js"]
+CMD ["npm", "start"]
 
 #set the working directory 
 WORKDIR /usr/src/frontend
@@ -38,13 +38,13 @@ WORKDIR /usr/src/frontend
 COPY frontend/package*.json ./
 
 # Install the app dependencies
-RUN yarn install
+RUN npm install
 
 # Copy the rest of the application code
 COPY . .
 
 # Build the app
-RUN yarn build
+RUN npm build
 
 # Expose the port
 EXPOSE 3000
