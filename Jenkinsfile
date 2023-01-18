@@ -9,7 +9,7 @@ pipeline {
             steps {
                 // Checkout the code from the repository
                 git url: 'https://github.com/adeoyedewale/finalclassreview.git'
-                sh 'cd frontend && npm install && npm build'
+                sh 'cd frontend && npm install && npm run build'
             }
         }
         stage('Build Backend') {
