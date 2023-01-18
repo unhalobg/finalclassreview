@@ -8,7 +8,7 @@ pipeline {
             steps {
                 // Checkout the code from the repository
                 git url: 'https://github.com/adeoyedewale/finalclassreview.git'
-                sh 'cd frontend && yarn install && yarn build'
+                sh 'cd frontend && npm install && npm build'
             }
         }
         stage('Build Backend') {
@@ -22,7 +22,7 @@ pipeline {
                 // Copy built applications to a temporary directory
                 //sh 'mkdir -p tmp/frontend'
                 //sh 'mkdir -p tmp/backend'
-                //sh 'cp -r frontend tmp/frontend'
+                //sh 'cp -r frontend/build tmp/frontend'
                 //sh 'cp -r backend tmp/backend'
                 // Build the Docker image
                 sh 'docker build -t eruobodo/my-app-image:$BUILD_NUMBER .'
