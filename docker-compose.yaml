@@ -1,0 +1,28 @@
+version: '3'
+services:
+  backend:
+    build:
+      context: ./backend
+    command: npm run start:backend
+    ports:
+      - "8080:8080"
+    volumes:
+      - backend_data:/usr/src/backend
+    environment:
+      - NODE_ENV=production
+  frontend:
+    build:
+      context: ./frontend
+    command: npm run start
+    ports:
+      - "80:3000"
+    volumes:
+      - frontend_data:/usr/src/frontend
+    environment:
+      - REACT_APP_BACKEND_URL=http://localhost:8080
+volumes:
+  backend_data:
+    driver: local
+  frontend_data:
+    driver: local
+
