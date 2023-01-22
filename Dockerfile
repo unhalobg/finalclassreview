@@ -37,7 +37,7 @@ EXPOSE 8080
 WORKDIR /usr/src/frontend
 
 # Copy the package.json and package-lock.json
-COPY backend/package*.json ./frontend
+COPY backend/package*.json ./
 
 # Install the app dependencies
 RUN npm install
