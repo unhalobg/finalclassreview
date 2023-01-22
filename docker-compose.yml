@@ -10,4 +10,5 @@ services:
       - 3000:3000
     environment:
       - API_URL=http://localhost:8080
+      - API_URL=http://localhost:3000
     image: docker.io/eruobodo/myapp:latest2
