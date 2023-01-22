@@ -26,7 +26,7 @@ pipeline {
                 sh 'cp -r frontend/build tmp/frontend'
                 sh 'cp -r backend tmp/backend'
                 // Build the Docker image
-                sh 'docker build -t eruobodo/my-app-image:$BUILD_NUMBER .'
+                sh 'docker build -t eruobodo/myfinal-app-image:$BUILD_NUMBER .'
             }
         }
       stage('Publish') {
@@ -34,13 +34,13 @@ pipeline {
 					//sh "docker login -u eruobodo -p Fifehanmi@2021"
 						sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login --username eruobodo --password-stdin'
 					//sh "docker tag eruobodo/classreview-app:$BUILD_NUMBER eruobodo/classreview-app:$BUILD_NUMBER"
-					sh "docker push eruobodo/my-app-image:$BUILD_NUMBER"
+					sh "docker push eruobodo/myfinal-app-image:$BUILD_NUMBER"
 				}
 		}
     }
   post {
 		always {
-			//cleanWs()
+			cleanWs()
 			sh 'docker logout'
 		}
 	}
