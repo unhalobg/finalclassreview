@@ -18,16 +18,16 @@ WORKDIR /usr/src/frontend
 # Copy the package.json and package-lock.json
 COPY frontend/package*.json ./
 
-# Install backend dependencies
+# Install frontend dependencies
 RUN npm install
 RUN npm ci
 
 
 # Copy the rest of the application code
-COPY . .
+COPY frontend/ .
 
 # Build the app
-RUN npm run frontend/build
+RUN npm run build
 
 # Expose port for the frontend
 EXPOSE 3000
@@ -46,7 +46,7 @@ RUN npm install
 RUN npm ci
 
 # Copy the rest of the application code
-COPY . .
+COPY backend/ .
 
 # Build the app
 #RUN npm run build
