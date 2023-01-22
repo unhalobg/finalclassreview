@@ -27,7 +27,7 @@ RUN npm ci
 COPY . .
 
 # Build the app
-RUN npm run build
+RUN npm run frontend/build
 
 # Expose port for the frontend
 EXPOSE 3000
