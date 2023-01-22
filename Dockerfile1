@@ -7,10 +7,10 @@ RUN mkdir -p /usr/src/backend
 RUN mkdir -p /usr/src/frontend
 
 # Copy built frontend application
-COPY frontend/build /usr/src/frontend
+COPY frontend/build/ /usr/src/frontend
 
 # Copy built backend application
-COPY backend /usr/src/backend
+COPY backend/ /usr/src/backend
 
 # Set the working directory
 WORKDIR /usr/src/backend
