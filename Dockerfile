@@ -24,27 +24,27 @@ RUN npm ci
 
 
 # Copy the rest of the application code
-COPY backend/ .
+COPY backend/. ./backend
 
 
 # Expose port for the frontend
 EXPOSE 8080
 
 # Start the backend
-CMD ["npm", "start"]
+#CMD ["npm", "start"]
 
 #set the working directory 
 WORKDIR /usr/src/frontend
 
 # Copy the package.json and package-lock.json
-COPY backend/package*.json ./
+COPY backend/package*.json ./frontend
 
 # Install the app dependencies
 RUN npm install
 RUN npm ci
 
 # Copy the rest of the application code
-COPY frontend/ .
+COPY frontend/. ./frontend
 
 # Build the app
 RUN npm run build
@@ -54,6 +54,7 @@ EXPOSE 3000
 
 # Start the application
 #CMD ["npm", "ci"]
-CMD ["npm", "start"]
+#CMD ["npm", "start"]
 #WORKDIR /usr/src/backend
-#CMD ["sh", "-c", "npm run start && cd /usr/src/frontend && npm run start"]
+CMD ["sh", "-c", "npm run start && cd /usr/src/frontend && npm run start"]
+
