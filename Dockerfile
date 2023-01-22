@@ -24,7 +24,7 @@ RUN npm ci
 
 
 # Copy the rest of the application code
-COPY backend/. ./backend
+COPY backend/. .
 
 
 # Expose port for the frontend
@@ -44,7 +44,7 @@ RUN npm install
 RUN npm ci
 
 # Copy the rest of the application code
-COPY frontend/. ./frontend
+COPY frontend/. .
 
 # Build the app
 RUN npm run build
