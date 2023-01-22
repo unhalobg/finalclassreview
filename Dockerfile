@@ -1,4 +1,5 @@
-FROM node:lts-alpine
+#FROM node:lts-alpine
+FROM node:14
 
 WORKDIR /app
 
