@@ -21,7 +21,7 @@ pipeline {
             steps {
               withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
                 sh 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
-                sh 'docker-compose push'
+                sh 'docker-compose push myapp'
               }
             }
         }
