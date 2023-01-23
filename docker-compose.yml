@@ -11,4 +11,4 @@ services:
     environment:
       - API_URL=http://localhost:8080
       - API_URL=http://localhost:3000
-    image: docker.io/eruobodo/myapp:latest3
+    image: docker.io/eruobodo/myapp:latest$BUILD_NUMBER
