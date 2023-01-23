@@ -10,9 +10,15 @@ RUN mkdir -p /usr/src/backend
 COPY frontend/ /usr/src/frontend
 COPY backend/ /usr/src/backend
 
+WORKDIR /usr/src/backend
+
+
 # install dependencies
-RUN cd /usr/src/backend && npm install && npm ci
-RUN cd /usr/src/frontend && npm install && npm ci && npm run build
+RUN npm install && npm ci
+
+WORKDIR /usr/src/frontend
+
+RUN npm install && npm ci && npm run build
 
 
 WORKDIR /usr/src/backend
