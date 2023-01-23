@@ -12,16 +12,41 @@ pipeline {
                 git url: 'https://github.com/adeoyedewale/finalclassreview.git'
             }
         }
-        stage('Build') {
-            steps{
-                sh 'docker-compose build'
+	    
+	stage('Build Backend') {
+            steps {
+		sh 'cd backend'
+		sh 'ci'
+                sh 'npm install'
             }
         }
+	    
+	stage('Build Frontend') {
+            steps {
+		sh 'cd frontend'
+		sh 'ci'
+                sh 'npm install'
+		sh 'npm run build'
+            }
+        }
+	
+	stage('Create Docker Image') {
+	    steps {
+		sh 'docker build -t myimage:$BUILD_NUMBER .'
+	    }
+	}
+	    
+        //stage('Build') {
+        //    steps{
+        //        sh 'docker-compose build'
+        //    }
+       // }
         stage('Push') {
             steps {
               withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
                 sh 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
-                sh 'docker-compose push myapp'
+                //sh 'docker-compose push myapp'
+		sh 'docker push myimage:$BUILD_NUMBER'
               }
             }
         }
