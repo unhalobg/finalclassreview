@@ -15,18 +15,15 @@ pipeline {
 	    
 	stage('Build Backend') {
             steps {
-		sh 'cd backend &&'
-		sh 'npm ci &&'
-                sh 'npm install'
+		sh 'cd backend && npm ci && npm install'
+                sh 'cd ..'
             }
         }
 	    
 	stage('Build Frontend') {
             steps {
-		sh 'cd frontend &&'
-		sh 'npm ci &&'
-                sh 'npm install &&'
-		sh 'npm run build'
+		sh 'cd frontend && npm ci && npm install && npm run build'
+                sh 'cd ..'
             }
         }
 	
