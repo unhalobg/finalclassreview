@@ -16,7 +16,7 @@ pipeline {
 	stage('Build Backend') {
             steps {
 		sh 'cd backend'
-		sh 'ci'
+		sh 'npm ci'
                 sh 'npm install'
             }
         }
@@ -24,7 +24,7 @@ pipeline {
 	stage('Build Frontend') {
             steps {
 		sh 'cd frontend'
-		sh 'ci'
+		sh 'npm ci'
                 sh 'npm install'
 		sh 'npm run build'
             }
@@ -32,7 +32,7 @@ pipeline {
 	
 	stage('Create Docker Image') {
 	    steps {
-		sh 'docker build -t myimage:$BUILD_NUMBER .'
+		sh 'docker build -t eruobodo/myximage:$BUILD_NUMBER .'
 	    }
 	}
 	    
@@ -46,7 +46,7 @@ pipeline {
               withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
                 sh 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
                 //sh 'docker-compose push myapp'
-		sh 'docker push myimage:$BUILD_NUMBER'
+		sh 'docker push eruobodo/myximage:$BUILD_NUMBER'
               }
             }
         }
