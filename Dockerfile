@@ -12,7 +12,7 @@ COPY backend/ /usr/src/backend
 
 # install dependencies
 RUN cd /usr/src/backend && npm install && npm ci
-RUN cd /usr.src/frontend && npm install && npm ci && npm run build
+RUN cd /usr/src/frontend && npm install && npm ci && npm run build
 
 # start backend
 CMD cd /usr/src/backend && npm start &
