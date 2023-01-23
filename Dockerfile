@@ -14,10 +14,14 @@ COPY backend/ /usr/src/backend
 RUN cd /usr/src/backend && npm install && npm ci
 RUN cd /usr/src/frontend && npm install && npm ci && npm run build
 
-# start backend
-CMD cd /usr/src/backend && npm start &
-#CMD ['sh', "cd /app/backend && npm start &"]
 
+WORKDIR /usr/src/backend
+
+# start backend
+#CMD cd /usr/src/backend && npm start &
+CMD ["npm", "start", "&"]
+ 
+ WORKDIR /usr/src/frontend
 # start frontend
-CMD cd /usr/src/frontend && npm start
-#CMD ['sh', "cd /app/frontend && npm start"]
+# CMD cd /usr/src/frontend && npm start
+CMD ["npm", "start"]
