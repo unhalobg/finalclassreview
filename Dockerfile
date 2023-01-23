@@ -18,4 +18,4 @@ EXPOSE 3000
 #CMD ["npm", "start"]
 
 WORKDIR /app/backend
-CMD ["sh", "-c", "npm run start && cd /app/frontend && npm run start"]
+CMD ["sh", "-c", "npm run start & cd /app/frontend && npm run start"]
